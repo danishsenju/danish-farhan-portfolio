@@ -101,7 +101,7 @@ export default function BusinessCard3D() {
             <div className="flex items-end justify-between gap-12">
               <div>
                 <p className="text-label tracking-label uppercase text-paper/60">
-                  Design Engineer
+                  Software Engineer
                 </p>
                 <p className="mt-8 text-label tracking-label uppercase text-paper/60">
                   Est. 2021

@@ -87,7 +87,7 @@ export default function Contact() {
         </div>
 
         <footer className="mt-152 flex flex-col items-start gap-[14px] border-t border-paper/15 pt-40 text-label tracking-label uppercase text-paper/45 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-12">
-          <span>© 2026 Danish Farhan</span>
+          <span>© 2026 Danish Farhan Zailan</span>
           <span className="hidden md:inline">
             Designed & built from scratch - every easing hand-picked
           </span>
