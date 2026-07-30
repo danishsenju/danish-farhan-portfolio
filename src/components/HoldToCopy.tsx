@@ -72,6 +72,31 @@ export default function HoldToCopy({ email }: { email: string }) {
     setPhase(p);
   };
 
+  /* Decoded and ready before the first press, because a sound that arrives
+     even a few frames after the surface lands is worse than no sound - the
+     two stop reading as one event and start reading as an echo. */
+  const pop = useRef<HTMLAudioElement | null>(null);
+  useEffect(() => {
+    const a = new Audio('/sound/pop-sound-effect.mp3');
+    a.preload = 'auto';
+    a.volume = 0.35;
+    pop.current = a;
+    return () => {
+      a.pause();
+      pop.current = null;
+    };
+  }, []);
+
+  const playPop = () => {
+    const a = pop.current;
+    if (!a) return;
+    // Rewound, so a second copy inside the same second still sounds
+    a.currentTime = 0;
+    // Blocked autoplay or a missing codec must never break the copy it
+    // was only ever decorating
+    void a.play().catch(() => {});
+  };
+
   useEffect(() => {
     const still = !!reduce;
     const render = () =>
@@ -120,6 +145,12 @@ export default function HoldToCopy({ email }: { email: string }) {
   };
 
   const copy = async () => {
+    /* First, and deliberately before the await: this runs in the same tick as
+       the tween that just filled the glass, so the pop lands on the frame the
+       surface reaches the top. Moving it below the clipboard call would tie
+       it to an async round trip instead of to the thing the user watched. */
+    playPop();
+
     try {
       await navigator.clipboard.writeText(email);
     } catch {
