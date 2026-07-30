@@ -6,6 +6,7 @@ import {
   useReducedMotion,
   type MotionValue,
 } from 'motion/react';
+import { Asterisk } from 'lucide-react';
 import IridescentCanvas from './IridescentCanvas';
 import { useMediaQuery } from '../lib/useMediaQuery';
 
@@ -212,7 +213,14 @@ export default function Hero() {
                     on one line, and a hanging number above a wrapped label
                     reads cleaner than a ragged inline one */}
                 <span className="mb-[3px] block text-paper/90 md:mb-0 md:mr-8 md:inline">
-                  ✳ 0{i + 1}
+                  {/* 1em ties the mark to the label's type scale, so it tracks
+                      the clamp instead of drifting at one of the two ends */}
+                  <Asterisk
+                    aria-hidden
+                    strokeWidth={2.5}
+                    className="mr-[5px] inline-block size-[1em] align-[-0.16em]"
+                  />
+                  0{i + 1}
                 </span>
                 {s}
               </p>

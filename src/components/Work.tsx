@@ -6,6 +6,7 @@ import {
   useMotionValueEvent,
   useReducedMotion,
 } from 'motion/react';
+import { Star } from 'lucide-react';
 import { PROJECTS, type Project } from '../lib/data';
 import { Reveal } from '../lib/Reveal';
 import SmartImage from './SmartImage';
@@ -41,7 +42,15 @@ function Panel({ p }: { p: Project }) {
           <h3 className="title-lg">{p.title}</h3>
           {p.award && (
             <span className="text-label tracking-label uppercase text-paper/50">
-              ★ {p.award}
+              {/* Filled, because the glyph it replaces was solid - an outline
+                  star at 11px reads as a different mark, not the same one */}
+              <Star
+                aria-hidden
+                fill="currentColor"
+                strokeWidth={1.5}
+                className="mr-[5px] inline-block size-[1em] align-[-0.16em]"
+              />
+              {p.award}
             </span>
           )}
         </div>

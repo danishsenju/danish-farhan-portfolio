@@ -7,6 +7,7 @@ import {
   useTransform,
   useReducedMotion,
 } from 'motion/react';
+import { Asterisk } from 'lucide-react';
 import { useMediaQuery } from '../lib/useMediaQuery';
 
 export default function BusinessCard3D() {
@@ -107,7 +108,11 @@ export default function BusinessCard3D() {
                 </p>
               </div>
               <span className="text-subheading leading-none text-paper/90">
-                ✳
+                <Asterisk
+                  aria-hidden
+                  strokeWidth={1.5}
+                  className="size-[1em]"
+                />
               </span>
             </div>
           </div>
