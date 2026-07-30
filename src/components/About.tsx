@@ -72,14 +72,15 @@ export default function About() {
         <motion.div style={{ y: textY }} className="will-change-transform">
           <Reveal>
             <p className="text-reading font-light text-paper/85">
-              I'm Danish Farhan - a full-stack software engineer from Kuala
-              Lumpur. I've shipped real-time transit tracking, payment flows,
-              and certificate systems running inside Malaysian maritime
-              operations - and taken first place at all four hackathons I've
-              entered. I care about{' '}
+              I'm Danish Farhan, a full-stack engineer from Kuala Lumpur -
+              four-time first-place hackathon winner, shipping
+              production-grade software solo. I've built a real-time transit
+              tracker decoding live national transit data, and a bill-splitting
+              platform now in public beta. I care about{' '}
               <span className="serif-italic">the last 4%</span> most
-              people skip: the easing curve, the empty state, the way a button
-              answers your press.
+              engineers skip - the easing curve, the empty state, the way a
+              button answers your press. That's the difference between
+              software that works and software that feels inevitable.
             </p>
           </Reveal>
 
