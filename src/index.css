@@ -258,6 +258,28 @@ body {
   transform: scale(0.97);
 }
 
+/* ---- Wordmark - the one piece of identity that never leaves the screen ----
+
+   The nav outlives every section, so the mark holds still by default and
+   answers only a deliberate hover: motion a visitor sees a hundred times is
+   motion that starts costing them.
+
+   A half turn, because the asterisk has six-fold symmetry and lands exactly
+   on itself. The gesture reads as a reset - which is what the button does -
+   and leaves no altered state behind to undo on the way out. 320ms is a
+   response, not a reveal, so it takes the strong ease-out rather than the
+   slow glide the scroll reveals use. */
+
+.logo-mark {
+  transition: transform 320ms var(--ease-out-strong);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .logo:hover .logo-mark {
+    transform: rotate(180deg);
+  }
+}
+
 /* ---- Ghost pills - the system's single expressive shape ---- */
 
 .pill {
@@ -465,6 +487,16 @@ body {
   .float-idle,
   .drag-hint {
     animation: none;
+  }
+
+  /* Later in the file than the hover rule and matching its specificity, so
+     this wins without !important */
+  .logo-mark {
+    transition: none;
+  }
+
+  .logo:hover .logo-mark {
+    transform: none;
   }
 
   .img-frame img,

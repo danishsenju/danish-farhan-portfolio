@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, useScroll, useSpring } from 'motion/react';
+import { Asterisk } from 'lucide-react';
 import { scrollToId, scrollToTop } from '../lib/scroll';
 
 const LINKS: [string, string][] = [
@@ -38,10 +39,17 @@ export default function Nav() {
       />
 
       <nav className="relative flex h-[58px] items-center justify-between px-[max(20px,5vw)] md:h-[66px] md:px-[max(24px,4vw)]">
+        {/* The lockup the business card already carries, so the mark reads as
+            the same identity in both places rather than two coincidences.
+            Medium weight gives it presence against nav links that sit at 400
+            and 80% opacity - a logo should be the heaviest thing in the bar,
+            not tie with its own navigation. */}
         <button
           onClick={scrollToTop}
-          className="pressable text-[14px] font-normal lowercase md:text-body-sm"
+          aria-label="Danish Farhan, back to top"
+          className="logo pressable flex items-center gap-[7px] text-[14px] font-medium lowercase tracking-[-0.01em] md:gap-8 md:text-body-sm"
         >
+          <Asterisk aria-hidden strokeWidth={2} className="logo-mark size-[1.05em]" />
           danish farhan
         </button>
 
