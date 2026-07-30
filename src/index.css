@@ -308,6 +308,50 @@ body {
   }
 }
 
+/* ---- View live - the one control that leaves the site ----
+
+   Deliberately not a .pill: that class transitions letter-spacing, which is
+   a layout property, and running it under a per-frame 3D spring would mean
+   recalculating layout on every one of those frames. Border and background
+   are all this needs from CSS - the geometry comes from Motion. */
+
+.view-live {
+  border-radius: var(--radius-full);
+  transition:
+    border-color 260ms var(--ease-out-strong),
+    background-color 260ms var(--ease-out-strong);
+}
+
+.view-live-arrow {
+  transition:
+    transform 260ms var(--ease-out-strong),
+    opacity 260ms var(--ease-out-strong);
+}
+
+/* Parked down-left along the same diagonal it will travel, so the pair reads
+   as one arrow continuing rather than two arrows swapping */
+.view-live-next {
+  transform: translate3d(-70%, 70%, 0);
+  opacity: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .view-live:hover {
+    border-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .view-live:hover .view-live-lead {
+    transform: translate3d(70%, -70%, 0);
+    opacity: 0;
+  }
+
+  .view-live:hover .view-live-next {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
 /* ---- Image frames - sharp corners, slow interior drift ---- */
 
 .img-frame {

@@ -10,6 +10,7 @@ import { Star } from 'lucide-react';
 import { PROJECTS, type Project } from '../lib/data';
 import { Reveal } from '../lib/Reveal';
 import SmartImage from './SmartImage';
+import ViewLiveButton from './ViewLiveButton';
 import { useMediaQuery } from '../lib/useMediaQuery';
 
 /*
@@ -75,14 +76,10 @@ function Panel({ p }: { p: Project }) {
               </span>
             ))}
           </div>
-          <a
-            href={p.url}
-            target="_blank"
-            rel="noreferrer"
-            className="pill pill-dark pressable flex h-[46px] w-full items-center justify-center border border-paper/40 text-body-sm md:ml-auto md:h-auto md:w-auto md:px-[28px] md:py-[9px]"
-          >
-            View live ↗
-          </a>
+          <ViewLiveButton
+            url={p.url}
+            className="h-[46px] w-full md:ml-auto md:h-auto md:w-auto md:px-[28px] md:py-[9px]"
+          />
         </div>
       </div>
     </article>
