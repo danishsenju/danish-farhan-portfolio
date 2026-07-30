@@ -20,7 +20,7 @@ import { useMediaQuery } from '../lib/useMediaQuery';
  */
 function Panel({ p }: { p: Project }) {
   return (
-    <article className="w-[min(74vw,900px)] shrink-0">
+    <article className="w-[86vw] shrink-0 lg:w-[min(74vw,900px)]">
       <div className="mb-12 flex items-baseline justify-between gap-12 text-label tracking-label uppercase text-paper/45">
         <span>
           ( {p.index} ) · {p.category}
@@ -29,10 +29,13 @@ function Panel({ p }: { p: Project }) {
       </div>
 
       <a href={p.url} target="_blank" rel="noreferrer" className="block">
+        {/* 16/10 on the phone too, now that the panel is pinned: a 5/4 frame
+            is 60px taller, and the whole card has to clear one screen height
+            or the sticky container clips its footer off */}
         <SmartImage
           src={p.image}
           alt={`${p.title} screenshot`}
-          aspect="aspect-[5/4] md:aspect-[16/10]"
+          aspect="aspect-[16/10]"
           fit={p.imageFit}
         />
       </a>
@@ -96,6 +99,7 @@ function WorkHorizontal() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [range, setRange] = useState(0);
   const [current, setCurrent] = useState(1);
+  const isCompact = useMediaQuery('(max-width: 1023px)');
 
   useEffect(() => {
     const measure = () => {
@@ -117,15 +121,20 @@ function WorkHorizontal() {
   const index = useTransform(scrollYProgress, [0, 1], [1, PROJECTS.length]);
   useMotionValueEvent(index, 'change', (v) => setCurrent(Math.round(v)));
 
+  // A phone panel is nearly a full screen wide, so it needs less scroll per
+  // project than a 900px desktop panel to cross the same viewport - 110svh
+  // each on a phone is a pin that overstays its welcome
+  const perProject = isCompact ? 88 : 110;
+
   return (
     <section
       ref={wrapRef}
       id="work"
       className="relative"
-      style={{ height: `${PROJECTS.length * 110}svh` }}
+      style={{ height: `${PROJECTS.length * perProject}svh` }}
     >
       <div className="sticky top-0 flex h-svh flex-col justify-center overflow-hidden">
-        <div className="flex items-baseline justify-between px-[max(24px,4vw)] text-label tracking-label uppercase text-paper/45">
+        <div className="flex items-baseline justify-between px-[max(20px,5vw)] text-label tracking-label uppercase text-paper/45 lg:px-[max(24px,4vw)]">
           <span>( 03 ) - Selected work</span>
           <span className="tabular-nums">
             {String(current).padStart(2, '0')} /{' '}
@@ -135,7 +144,7 @@ function WorkHorizontal() {
         <motion.div
           ref={trackRef}
           style={{ x }}
-          className="mt-40 flex w-max gap-[6vw] px-[max(24px,8vw)] will-change-transform"
+          className="mt-28 flex w-max gap-[7vw] px-[7vw] will-change-transform lg:mt-40 lg:gap-[6vw] lg:px-[max(24px,8vw)]"
         >
           {PROJECTS.map((p) => (
             <Panel key={p.title} p={p} />
@@ -169,8 +178,18 @@ function WorkVertical() {
   );
 }
 
+/*
+ * The sideways dolly is the section's identity, so the phone gets it too -
+ * width was never what made it work, scroll distance was.
+ *
+ * Height still is, though: a pinned panel has exactly one screen to fit its
+ * image, description, stack and CTA, and the sticky container clips whatever
+ * doesn't. Above 640px tall it fits; below that the panel would lose its
+ * footer, so those screens keep the vertical edit. Reduced motion keeps it
+ * as well - hijacking the scroll axis is the most vestibular thing here.
+ */
 export default function Work() {
-  const isDesktop = useMediaQuery('(min-width: 1024px)');
+  const hasRoom = useMediaQuery('(min-height: 640px)');
   const reduce = useReducedMotion();
-  return isDesktop && !reduce ? <WorkHorizontal /> : <WorkVertical />;
+  return hasRoom && !reduce ? <WorkHorizontal /> : <WorkVertical />;
 }
