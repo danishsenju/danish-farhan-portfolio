@@ -152,12 +152,16 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* Stacked, this gap is the only thing separating two groups, so it
-              has to stay clearly larger than the 20px inside the headline pair
-              - at 26px against 20px the four lines read as one blob. Two
-              columns on lg and it becomes a column gap instead. */}
+          {/* Stacked, this gap is the only thing separating two groups, and
+              CSS px are not what the eye measures: display-anchor's 0.94
+              leading lets the g in "Engineer" hang past its line box and eat
+              into the space below it. 34px measured about 36px optically
+              against the pair's 30px - close enough that the four lines read
+              as four separate things instead of two pairs. 56px is the first
+              value where the break is unmistakable. Two columns on lg and it
+              becomes a column gap instead. */}
           <motion.div
-            className="grid flex-1 content-center items-center gap-[34px] lg:gap-28 lg:grid-cols-[1.35fr_0.65fr]"
+            className="grid flex-1 content-center items-center gap-[56px] lg:gap-28 lg:grid-cols-[1.35fr_0.65fr]"
             style={{ scale, opacity }}
           >
             <div>
@@ -187,11 +191,17 @@ export default function Hero() {
               className="max-w-[360px] lg:justify-self-end lg:text-right"
               style={{ animation: 'fade-in 1.2s ease 1.1s both' }}
             >
-              <p className="text-body font-medium leading-[1.32] text-paper">
+              {/* text-body is clamp(16px, 1.3vw, 18px), so it only leaves 16px
+                  above a 1385px viewport - on every phone this line and the
+                  paragraph under it were the same size, separated by weight
+                  and opacity alone. That is not enough to make a thesis read
+                  as a thesis. A real size step here, and back to the scale on
+                  lg where the two columns already do the work. */}
+              <p className="text-[19px] font-medium leading-[1.3] text-paper lg:text-body lg:leading-[1.32]">
                 Great software should feel invisible.
               </p>
               {/* The thesis is a pair too - 12px keeps it tight enough to read
-                  as one thought under the 34px that separates it from the
+                  as one thought under the 56px that separates it from the
                   headline above */}
               <p className="mt-12 text-body-sm leading-[1.5] text-paper/60">
                 I design and build interfaces where every unseen detail
