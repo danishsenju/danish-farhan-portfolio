@@ -42,13 +42,23 @@ function Row({ r, first }: { r: Role; first: boolean }) {
             <p className="mt-8 text-caption text-paper/35">
               {r.place}, Malaysia
             </p>
+            {/* The row divider above is already a hairline, so a hairline
+                bullet had nothing to distinguish it. Hanging numbers speak
+                the counting language the rest of the page uses - ( 04 )
+                Experience, 01-04 on the services rail - and let the copy
+                keep one clean left edge. items-baseline does the alignment,
+                so the number sits on the first line's baseline without a
+                magic pixel nudge. */}
             <ul className="mt-12 max-w-[640px] space-y-[10px] text-body-sm leading-[1.5] text-paper/65">
-              {r.points.map((pt) => (
-                <li
-                  key={pt}
-                  className="relative pl-[18px] before:absolute before:left-0 before:top-[0.68em] before:h-px before:w-[10px] before:bg-paper/30"
-                >
-                  {pt}
+              {r.points.map((pt, i) => (
+                <li key={pt} className="flex items-baseline gap-12">
+                  <span
+                    aria-hidden
+                    className="w-[17px] shrink-0 text-label tracking-label tabular-nums text-paper/30"
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span>{pt}</span>
                 </li>
               ))}
             </ul>
