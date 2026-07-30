@@ -338,15 +338,11 @@ body {
 
 /* ---- Hold-to-copy - slow while deciding, fast when released ---- */
 
-.hold-fill {
-  clip-path: inset(0 100% 0 0);
-  transition: clip-path 200ms var(--ease-out-strong); /* release: snappy */
-}
-
-.holding .hold-fill {
-  clip-path: inset(0 0 0 0);
-  transition: clip-path 900ms linear; /* press: deliberate */
-}
+/* The fill's shape is a live surface now, driven frame by frame from GSAP
+   and handed over as a clip-path reference - a CSS transition here would be
+   a second hand on the same wheel. Asymmetric timing still holds, it just
+   lives in the tweens: 900ms linear to fill while the user is deciding,
+   260ms power3.out to drain once the system is answering. */
 
 .hold-label {
   transition:
