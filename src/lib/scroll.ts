@@ -2,7 +2,7 @@ import Lenis from 'lenis';
 
 let lenis: Lenis | null = null;
 
-// Strong ease-out — the glide the whole site speaks
+// Strong ease-out - the glide the whole site speaks
 const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4);
 
 export function initSmoothScroll(): () => void {

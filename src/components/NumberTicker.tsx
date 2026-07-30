@@ -4,7 +4,7 @@ import { useReducedMotion } from 'motion/react';
 /*
  * A number that counts up once, when it arrives on screen.
  *
- * The count is the content here, not decoration — a stat frozen at 0 reads as
+ * The count is the content here, not decoration - a stat frozen at 0 reads as
  * a claim of zero, not as an animation that hasn't run. So every path out of
  * this component ends on the real value: no observer, throttled frames, an
  * unmount mid-count. The animation is the nice case, never the only case.
@@ -44,7 +44,7 @@ export default function NumberTicker({
       started = true;
       stopWatching();
 
-      // The rAF timestamp is its own clock — anchoring to the first frame
+      // The rAF timestamp is its own clock - anchoring to the first frame
       // keeps the curve honest even when iOS throttles the frame rate under
       // Low Power Mode, instead of skipping to the end or stalling at 0
       let t0 = 0;

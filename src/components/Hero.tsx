@@ -54,7 +54,7 @@ const SERVICES = [
   'Motion Design',
 ];
 
-/* The cutout portrait (transparent PNG) — renders only once the real file
+/* The cutout portrait (transparent PNG) - renders only once the real file
    loads, anchored to the bottom like a studio subject in the frame.
    Desktop stands it in the right third of the composition; portrait crops
    it off the right edge so the text column keeps a clean left margin. */
@@ -80,7 +80,7 @@ function HeroCutout({ y }: { y: MotionValue<string> }) {
  * Desktop is a two-column spread: intro line and monumental headline left,
  * a short thesis right, numbered services along the bottom.
  *
- * Portrait re-cuts the same scene for a tall frame — one centred column,
+ * Portrait re-cuts the same scene for a tall frame - one centred column,
  * the headline and thesis reading as a single vertical run, the portrait
  * cropped off the right edge behind two scrims that protect the type. Both
  * pin and push toward the camera as you scroll; the phone pushes less,
@@ -112,7 +112,7 @@ export default function Hero() {
 
   return (
     <div ref={wrapperRef} className="relative h-[138svh] md:h-[170svh]">
-      {/* The 520px floor stops the hero collapsing on a short window — but a
+      {/* The 520px floor stops the hero collapsing on a short window - but a
           phone held sideways IS a short window, and there the floor is what
           crops the services rail off the bottom. Above 560px tall only. */}
       <section className="sticky top-0 h-svh overflow-hidden [@media(min-height:560px)]:min-h-[520px]">
@@ -151,8 +151,12 @@ export default function Hero() {
             </p>
           </div>
 
+          {/* Stacked, this gap is the only thing separating two groups, so it
+              has to stay clearly larger than the 20px inside the headline pair
+              - at 26px against 20px the four lines read as one blob. Two
+              columns on lg and it becomes a column gap instead. */}
           <motion.div
-            className="grid flex-1 content-center items-center gap-[26px] md:gap-28 lg:grid-cols-[1.35fr_0.65fr]"
+            className="grid flex-1 content-center items-center gap-[34px] lg:gap-28 lg:grid-cols-[1.35fr_0.65fr]"
             style={{ scale, opacity }}
           >
             <div>
@@ -161,10 +165,14 @@ export default function Hero() {
                   className="serif-italic text-subheading text-paper/90"
                   style={{ '--reveal-delay': '100ms' } as React.CSSProperties}
                 >
-                  Hey, I'm Danish Farhan —
+                  Hey, I'm Danish Farhan -
                 </span>
               </p>
-              <h1 className="display-anchor mt-[10px] md:mt-12">
+              {/* 10px let the serif's descenders sit in the headline's
+                  cap-height - display-anchor's 0.94 leading pulls "Software"
+                  up hard, so the optical gap read as less than the number.
+                  20px is still one pair, just no longer a collision. */}
+              <h1 className="display-anchor mt-[20px] md:mt-28">
                 <span className="block">
                   <Letters text="Software" startDelay={250} />
                 </span>
@@ -181,9 +189,12 @@ export default function Hero() {
               <p className="text-body font-medium leading-[1.32] text-paper">
                 Great software should feel invisible.
               </p>
-              <p className="mt-[10px] text-body-sm leading-[1.5] text-paper/60 md:mt-12">
+              {/* The thesis is a pair too - 12px keeps it tight enough to read
+                  as one thought under the 34px that separates it from the
+                  headline above */}
+              <p className="mt-12 text-body-sm leading-[1.5] text-paper/60">
                 I design and build interfaces where every unseen detail
-                compounds — then I disappear behind them.
+                compounds - then I disappear behind them.
               </p>
             </div>
           </motion.div>

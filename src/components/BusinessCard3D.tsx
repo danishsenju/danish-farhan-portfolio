@@ -18,7 +18,7 @@ export default function BusinessCard3D() {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  // Pointer tilt — spring-interpolated so it has momentum, not a 1:1 stick
+  // Pointer tilt - spring-interpolated so it has momentum, not a 1:1 stick
   const tiltX = useMotionValue(0);
   const tiltY = useMotionValue(0);
   const rotateX = useSpring(tiltX, { stiffness: 180, damping: 18, mass: 0.6 });
@@ -27,7 +27,7 @@ export default function BusinessCard3D() {
   // Flicking sideways banks the card into the throw
   const rotate = useTransform(x, [-320, 320], [-9, 9]);
 
-  // Iridescent sheen sweeps across the black face as it tilts — the one
+  // Iridescent sheen sweeps across the black face as it tilts - the one
   // place the hero's liquid light touches the interface
   const glareX = useTransform(rotateY, [-16, 16], [82, 18]);
   const glareY = useTransform(rotateX, [-12, 12], [15, 85]);
@@ -59,13 +59,13 @@ export default function BusinessCard3D() {
     >
       {/* A finger can't hover, so the card never announces that it's
           draggable. Three short nudges do it, then the wrapper goes quiet
-          for good — see .drag-hint. */}
+          for good - see .drag-hint. */}
       <div className={dragging ? '' : 'drag-hint'}>
         <motion.div
           /* Touch locks to the horizontal axis and leaves `pan-y` to the
              browser: a vertical swipe on the card scrolls the page instead
              of dragging a card nobody was trying to move. A mouse keeps
-             both axes — a pointer can't scroll by dragging anyway. */
+             both axes - a pointer can't scroll by dragging anyway. */
           drag={reduce ? false : touch ? 'x' : true}
           dragSnapToOrigin
           dragTransition={{ bounceStiffness: 260, bounceDamping: 17 }}

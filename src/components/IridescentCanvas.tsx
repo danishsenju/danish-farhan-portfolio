@@ -81,12 +81,12 @@ void main() {
   col = mix(col, sage * 0.65, smoothstep(0.40, 0.85, f) * smoothstep(0.25, 0.75, r.x));
   col += amber * pow(smoothstep(0.45, 0.95, f * (0.6 + r.y)), 3.0) * 0.85;
 
-  /* glossy lighting — this is what makes it glass instead of smoke */
+  /* glossy lighting - this is what makes it glass instead of smoke */
   vec3 lightDir = normalize(vec3(-0.35, 0.55, 0.75));
   float spec = pow(clamp(dot(n, lightDir), 0.0, 1.0), 28.0);
   col += vec3(0.95, 0.97, 0.9) * spec * 0.45;
 
-  /* fresnel rim — cool sheen where the surface turns away */
+  /* fresnel rim - cool sheen where the surface turns away */
   float fresnel = pow(1.0 - abs(n.z), 2.5);
   col += vec3(0.55, 0.75, 0.65) * fresnel * 0.28;
 
@@ -190,7 +190,7 @@ export default function IridescentCanvas({ speed = 1 }: { speed?: number }) {
     };
 
     if (reduce) {
-      // One still frame — the atmosphere without the motion
+      // One still frame - the atmosphere without the motion
       gl.uniform2f(uRes, canvas.width, canvas.height);
       gl.uniform1f(uTime, 12.0);
       gl.uniform2f(uMouse, 0, 0);

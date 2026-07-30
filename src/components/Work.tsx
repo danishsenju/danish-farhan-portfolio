@@ -12,8 +12,8 @@ import SmartImage from './SmartImage';
 import { useMediaQuery } from '../lib/useMediaQuery';
 
 /*
- * One project. The glass caption plate overlaps the image on both sizes —
- * that overlap is the card's identity — but on a phone it drops to a 30px
+ * One project. The glass caption plate overlaps the image on both sizes -
+ * that overlap is the card's identity - but on a phone it drops to a 30px
  * bite and spans nearly the full width, because a 76%-wide plate with 28px
  * of padding leaves about 24 characters per line on a 390px screen.
  */
@@ -79,7 +79,7 @@ function Panel({ p }: { p: Project }) {
 
 /*
  * Desktop: the section pins and vertical scroll drives the gallery sideways
- * — a scrubbed dolly along the work. You control every frame; scroll back
+ * - a scrubbed dolly along the work. You control every frame; scroll back
  * and it rewinds.
  */
 function WorkHorizontal() {
@@ -117,7 +117,7 @@ function WorkHorizontal() {
     >
       <div className="sticky top-0 flex h-svh flex-col justify-center overflow-hidden">
         <div className="flex items-baseline justify-between px-[max(24px,4vw)] text-label tracking-label uppercase text-paper/45">
-          <span>( 03 ) — Selected work</span>
+          <span>( 03 ) - Selected work</span>
           <span className="tabular-nums">
             {String(current).padStart(2, '0')} /{' '}
             {String(PROJECTS.length).padStart(2, '0')}
@@ -145,7 +145,7 @@ function WorkVertical() {
       className="mx-auto max-w-[1240px] px-[max(20px,5vw)] md:px-[max(24px,4vw)]"
     >
       <p className="text-label tracking-label uppercase text-paper/45">
-        ( 03 ) — Selected work
+        ( 03 ) - Selected work
       </p>
       <div className="mt-40 space-y-[max(72px,10vh)] md:mt-64 md:space-y-[max(120px,14vh)]">
         {PROJECTS.map((p, i) => (

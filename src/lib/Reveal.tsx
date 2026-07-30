@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from 'motion/react';
 import type { ReactNode } from 'react';
 
-// The system's signature glide — patient camera moves, never UI snaps
+// The system's signature glide - patient camera moves, never UI snaps
 export const GLIDE = [0.19, 1, 0.22, 1] as const;
 
 export function Reveal({

@@ -27,7 +27,7 @@ export default function HoldToCopy({ email }: { email: string }) {
     try {
       await navigator.clipboard.writeText(email);
     } catch {
-      /* clipboard unavailable — the mailto pill next to this still works */
+      /* clipboard unavailable - the mailto pill next to this still works */
     }
     setPhase('copied');
     clearTimeout(resetTimer.current);

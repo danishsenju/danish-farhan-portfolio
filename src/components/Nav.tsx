@@ -28,7 +28,7 @@ export default function Nav() {
         style={{ scaleX: progress }}
       />
       {/* Phone content runs much closer under the bar than desktop content
-          does — a scrim keeps the labels legible without giving the whole
+          does - a scrim keeps the labels legible without giving the whole
           bar a hard edge. Fades in with the same 500ms as the pill's glass. */}
       <div
         aria-hidden

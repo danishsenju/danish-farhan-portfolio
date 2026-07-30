@@ -7,7 +7,7 @@ import { EMAIL, GITHUB, LINKEDIN } from '../lib/data';
 
 /*
  * The finale bookends the film: the liquid returns, slower and dimmer,
- * under a black gauze — and the glass card floats on top of it.
+ * under a black gauze - and the glass card floats on top of it.
  */
 export default function Contact() {
   return (
@@ -18,7 +18,7 @@ export default function Contact() {
       <div className="relative z-10 mx-auto max-w-[1240px] px-[max(20px,5vw)] py-[max(80px,12vh)] md:px-[max(24px,4vw)] md:py-[max(120px,16vh)]">
         <Reveal>
           <p className="text-label tracking-label uppercase text-paper/50">
-            ( 05 ) — Contact
+            ( 05 ) - Contact
           </p>
         </Reveal>
 
@@ -33,7 +33,7 @@ export default function Contact() {
 
             <Reveal delay={0.1}>
               <p className="mt-40 max-w-[440px] text-body leading-[1.45] text-paper/65">
-                Hiring for frontend, UI/UX, or design engineering — or bringing
+                Hiring for frontend, UI/UX, or software engineering - or bringing
                 a freelance project? My inbox is open.
               </p>
             </Reveal>
@@ -79,8 +79,8 @@ export default function Contact() {
             <div>
               <BusinessCard3D />
               <p className="mt-28 text-center text-label tracking-label uppercase text-paper/40">
-                <span className="md:hidden">Drag it — it comes back</span>
-                <span className="hidden md:inline">Grab it — it comes back</span>
+                <span className="md:hidden">Drag it - it comes back</span>
+                <span className="hidden md:inline">Grab it - it comes back</span>
               </p>
             </div>
           </Reveal>
@@ -89,7 +89,7 @@ export default function Contact() {
         <footer className="mt-152 flex flex-col items-start gap-[14px] border-t border-paper/15 pt-40 text-label tracking-label uppercase text-paper/45 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-12">
           <span>© 2026 Danish Farhan</span>
           <span className="hidden md:inline">
-            Designed & built from scratch — every easing hand-picked
+            Designed & built from scratch - every easing hand-picked
           </span>
           <button
             onClick={scrollToTop}

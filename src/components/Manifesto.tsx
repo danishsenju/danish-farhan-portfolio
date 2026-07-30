@@ -8,12 +8,12 @@ import {
 } from 'motion/react';
 
 const TEXT =
-  'I believe software should feel made by hand. I design in the browser, sweat the easing curves, and ship interfaces where every unseen detail compounds — until the whole thing simply feels right.';
+  'I believe software should feel made by hand. I design in the browser, sweat the easing curves, and ship interfaces where every unseen detail compounds - until the whole thing simply feels right.';
 
 const WORDS = TEXT.split(' ');
 const TOTAL_CHARS = TEXT.length;
 
-/* One character: gray until the scroll reaches it, then white — monopo.vn's
+/* One character: gray until the scroll reaches it, then white - monopo.vn's
    letter-by-letter ink, scrubbed and reversible. */
 function Char({
   ch,
@@ -43,7 +43,7 @@ export default function Manifesto() {
     return (
       <section className="relative z-10 mx-auto max-w-[1240px] px-[max(20px,5vw)] py-[max(80px,12vh)] md:px-[max(24px,4vw)] md:py-[max(120px,16vh)]">
         <p className="text-label tracking-label uppercase text-paper/45">
-          ( 02 ) — Manifesto
+          ( 02 ) - Manifesto
         </p>
         <p className="whisper mt-40 max-w-[1050px] text-paper md:mt-64">
           {TEXT}
@@ -53,7 +53,7 @@ export default function Manifesto() {
   }
 
   // Words wrap as units; characters ink individually inside them.
-  // The pin is 190svh on a phone rather than 260 — the same sentence is a
+  // The pin is 190svh on a phone rather than 260 - the same sentence is a
   // third of the width and twice as many lines there, so the full-height
   // track would read as the page being stuck rather than as a reveal.
   let charIndex = 0;
@@ -79,7 +79,7 @@ export default function Manifesto() {
       <div className="sticky top-0 flex h-svh items-center">
         <div className="mx-auto w-full max-w-[1240px] px-[max(20px,5vw)] md:px-[max(24px,4vw)]">
           <p className="text-label tracking-label uppercase text-paper/45">
-            ( 02 ) — Manifesto
+            ( 02 ) - Manifesto
           </p>
           <p className="whisper mt-40 max-w-[1050px] text-paper md:mt-64">
             {words}

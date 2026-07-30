@@ -18,7 +18,7 @@ const STATS = [
 ];
 
 /*
- * Two columns riding the scroll at different speeds — the portrait drifts up
+ * Two columns riding the scroll at different speeds - the portrait drifts up
  * slower than the text, so the section has depth the whole way through, not
  * just at the moment it enters.
  *
@@ -55,12 +55,12 @@ export default function About() {
     >
       <Reveal>
         <p className="mb-40 text-label tracking-label uppercase text-paper/45 md:mb-64">
-          ( 01 ) — About
+          ( 01 ) - About
         </p>
       </Reveal>
       <div className="grid gap-40 md:gap-64 md:grid-cols-[0.85fr_1.15fr]">
         <motion.div style={{ y: portraitY }} className="will-change-transform">
-          {/* A 4:5 portrait fills two thirds of a phone screen — 3:4 keeps
+          {/* A 4:5 portrait fills two thirds of a phone screen - 3:4 keeps
               it a picture rather than a wall */}
           <SmartImage
             src="/images/portrait.jpeg"
@@ -72,10 +72,10 @@ export default function About() {
         <motion.div style={{ y: textY }} className="will-change-transform">
           <Reveal>
             <p className="text-reading font-light text-paper/85">
-              I'm Danish Farhan — a full-stack software engineer from Kuala
+              I'm Danish Farhan - a full-stack software engineer from Kuala
               Lumpur. I've shipped real-time transit tracking, payment flows,
               and certificate systems running inside Malaysian maritime
-              operations — and taken first place at all four hackathons I've
+              operations - and taken first place at all four hackathons I've
               entered. I care about{' '}
               <span className="serif-italic">the last 4%</span> most
               people skip: the easing curve, the empty state, the way a button

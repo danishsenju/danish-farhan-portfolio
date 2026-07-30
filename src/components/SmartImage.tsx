@@ -10,7 +10,7 @@ import { GLIDE } from '../lib/Reveal';
 /**
  * Renders /public image if present; otherwise a quiet placeholder telling you
  * exactly which file to drop in. Sharp corners, clip reveal on scroll, and an
- * internal parallax drift so the image moves slower than the page — depth,
+ * internal parallax drift so the image moves slower than the page - depth,
  * like a camera dolly.
  */
 export default function SmartImage({

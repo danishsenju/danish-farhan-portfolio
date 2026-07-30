@@ -5,7 +5,7 @@ import { Reveal } from '../lib/Reveal';
 
 /*
  * Each row's hairline draws itself left-to-right as the row crosses the
- * viewport — scrubbed to scroll, so easing back erases it again.
+ * viewport - scrubbed to scroll, so easing back erases it again.
  */
 function Row({ r, first }: { r: Role; first: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -64,7 +64,7 @@ export default function Experience() {
     <section className="mx-auto max-w-[1240px] px-[max(20px,5vw)] pt-[max(80px,12vh)] md:px-[max(24px,4vw)] md:pt-[max(120px,16vh)]">
       <Reveal>
         <p className="text-label tracking-label uppercase text-paper/45">
-          ( 04 ) — Experience
+          ( 04 ) - Experience
         </p>
       </Reveal>
 

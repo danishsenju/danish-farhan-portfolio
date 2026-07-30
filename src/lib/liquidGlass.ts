@@ -2,7 +2,7 @@
  * Generates the displacement map that powers real refraction in `.glass`
  * panels. Each pixel encodes a displacement vector (R = x, G = y, 128 =
  * neutral): the center is untouched, and pixels near the edge pull the
- * backdrop inward — the lens-edge bending that makes iOS Liquid Glass read
+ * backdrop inward - the lens-edge bending that makes iOS Liquid Glass read
  * as curved glass instead of frosted plastic.
  */
 export function generateDisplacementMap(size = 256): string {

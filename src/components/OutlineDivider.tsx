@@ -41,7 +41,7 @@ export default function OutlineDivider({
     if (reduce || width === 0) return '0px';
     const raw = -latest * speed;
     const wrapped = ((raw % width) + width) % width; // normalize to [0, width)
-    return `${wrapped - width}px`; // always in [-width, 0] — never runs dry
+    return `${wrapped - width}px`; // always in [-width, 0] - never runs dry
   });
 
   return (
@@ -51,10 +51,10 @@ export default function OutlineDivider({
     >
       <motion.div className="flex w-max will-change-transform" style={{ x }}>
         <p ref={trackRef} className="outline-type pr-[max(48px,6vw)]">
-          {text} — {text} — {text} —
+          {text} - {text} - {text} -
         </p>
         <p className="outline-type pr-[max(48px,6vw)]">
-          {text} — {text} — {text} —
+          {text} - {text} - {text} -
         </p>
       </motion.div>
     </div>
